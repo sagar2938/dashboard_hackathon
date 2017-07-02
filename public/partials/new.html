@@ -1,0 +1,157 @@
+
+<div class="bg-1">
+<nav class="navbar navbar-default">
+    <div class="navbar-header" style="background-color:lavender;">
+      <a class="navbar-brand" href="#">DASHBOARD</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+	  <li class="active"><a href="#" onclick="myFunction()">Print this page</a></li>
+	  <li class="active"><a href="#">
+  <span id="date_time"></span>
+            <script type="text/javascript">window.onload = date_time('date_time');</script></a></li>
+    </ul>
+</nav>
+ <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" style="width: 50px;>
+      <li><a href="#">HTML</a></li>
+      <li><a href="#">CSS</a></li>
+      <li><a href="#">JavaScript</a></li>
+    </ul>
+
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" style="width: 50px;>
+      <li><a href="#">HmML</a></li>
+      <li><a href="#">CddSS</a></li>
+      <li><a href="#">JavdddaScript</a></li>
+    </ul>
+
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" style="width: 50px;>
+      <li><a href="#">dsdfHTML</a></li>
+      <li><a href="#">CSSdsfsfs</a></li>
+      <li><a href="#">JavaScridfsdfsfsfdpt</a></li>
+    </ul>
+	<div class="container">
+  <form>
+    <div class="row">
+	<div class="col-xs-2">
+      <label for="sel1">Select</label>
+      <select class="form-control" id="sel1" style="width: 100px;" ng-model="timestamp_selected" ng-click="getFiles_timestamp(timestamp_selected)" class="form-control" style="width: 100px;">
+      <option ng-repeat="timestamp in timestamps" >{{timestamp.pmd._attributes.timestamp}}</option>
+    </select>
+	  </div>
+	   <<div class="col-xs-2">
+      <label for="sel1">Select </label>
+      <select class="form-control" id="sel1" style="width: 100px;" ng-model="file_selected" ng-change="getVoilations_file(file_selected)" class="form-control" style="width: 100px;">
+     <option ng-repeat="file in fileList">{{file._attributes.name}}</option>
+   </select>
+	  </div>
+    </div>
+  </form>
+</div>
+  </div>
+
+<br>
+<div id="container">
+<div class="col-sm-2" style="background-color:#d7efd6;">
+<br>
+    <div>
+	<div class="container">
+  <form>
+    <div class="form-group">
+      <label for="sel1">Select list (select one):</label>
+      button style="width: 75px;" type="button" class="btn btn-info" ng-click="generate_stage1_graph('report/pmd/priority/'+priority_selected+'/',priority_selected)">priority</button>
+      <select class="form-control" id="sel1" style="width: 100px;"  ng-model="priority_selected" style="width: 100px;">
+<option ng-repeat="priority in priorityList">{{priority}}</option>
+</select>
+	   <label for="sel1">Select list (select one):</label>
+
+      <button style="width: 75px;" type="button" class="btn btn-info" ng-click="generate_stage1_graph('report/pmd/class/'+class_selected+'/',class_selected)">class</button>  <select class="form-control" id="sel1" style="width: 100px;" ng-model="class_selected" style="width: 100px;">
+   <option ng-repeat="class in classList">{{class}}</option>
+ </select>
+    </div>
+  </form>
+</div>
+<button style="width: 75px;" type="button" class="btn btn-info" ng-click="generate_stage1_graph('report/pmd/package/'+package_selected+'/',package_selected)">package</button>  <select ng-model="package_selected" style="width: 100px;">
+<option ng-repeat="package in packageList">{{package}}</option>
+
+</select>
+
+<br><br>
+<button style="width: 75px;" type="button" class="btn btn-info" ng-click="generate_stage1_graph('report/pmd/ruleset/'+ruleset_selected+'/',ruleset_selected)">ruleset</button>  <select ng-model="ruleset_selected" style="width: 100px;">
+<option ng-repeat="ruleset in rulesetList">{{ruleset}}</option>
+</select>
+<br><br>
+		 <button type="button" class="btn btn-info">abcdef</button>  <select style="width: 100px;>
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</select><br><br>
+		 <button type="button" class="btn btn-info">abcdef</button>  <select style="width: 100px;>
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</select><br><br>
+		 <button type="button" class="btn btn-info">abcdef</button><br><br>
+		 <button type="button" class="btn btn-info">abcdef</button><br><br>
+		 <button type="button" class="btn btn-info">abcdef</button><br><br>
+		 <button type="button" class="btn btn-info">abcdef</button><br><br>
+		</div>
+</div>
+
+<div class="col-sm-15" style="background-color:lavender;" size="150px"> <br><br> <table align="center">
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Centro comercial Moctezuma</td>
+    <td>Francisco Chang</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>Ernst Handel</td>
+    <td>Roland Mendel</td>
+    <td>Austria</td>
+  </tr>
+  <tr>
+    <td>Island Trading</td>
+    <td>Helen Bennett</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>Laughing Bacchus Winecellars</td>
+    <td>Yoshi Tannamuri</td>
+    <td>Canada</td>
+  </tr>
+  <tr>
+    <td>Magazzini Alimentari Riuniti</td>
+    <td>Giovanni Rovelli</td>
+    <td>Italy</td>
+  </tr>
+</table>
+</div>
+
+  </div>
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+<script src="controllers/controller.js"></script>
+<footer class="container-fluid bg-4 text-center" style="background-color: #ffffff";>
+ ---> HAKCERS <---
+</footer>

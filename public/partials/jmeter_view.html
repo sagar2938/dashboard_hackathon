@@ -1,0 +1,88 @@
+<div class="bg-1">
+<nav class="navbar navbar-default">
+    <div class="navbar-header" style="background-color:lavender;">
+      <a class="navbar-brand" href="#">DASHBOARD</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+	 <li class="active"><a href="#" onclick="myFunction()">Print this page</a></li>
+	 <li class="active"><a href="#">
+  <span id="date_time"></span>
+            <script type="text/javascript">window.onload = date_time('date_time');</script></a></li>
+    </ul>
+</nav>
+<div id="container" ng-controller="pmdController" style="background-color: #1abc9c;">
+  <div class="dropdown">
+ <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" >Dropdown
+ <span class="caret"></span></button>
+
+   <select ng-model="timestamp_selected" ng-click="getFiles_timestamp(timestamp_selected)" style="width: 200px;">
+   <option ng-repeat="timestamp in timestamps" >{{timestamp.pmd._attributes.timestamp}}</option>
+ </select>
+
+ <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown
+ <span class="caret"></span></button>
+    <select ng-model="file_selected" ng-change="getVoilations_file(file_selected)" style="width: 200px;">
+   <option ng-repeat="file in fileList">{{file._attributes.name}}</option>
+ </select>
+
+ <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown
+ <span class="caret"></span></button>
+ <select ng-model="violation_selected" ng-change="display_voilation_details(violation_selected)" style="width: 200px;">
+   <option ng-repeat="violation in violationsList" value="{{violation}}">{{violation._text}}</option>
+ </select>
+</div>
+<br>
+<div id="container">
+
+      <div class="col-sm-2"  style="background-color:#d7efd6; height: 442px;">
+<br>
+         <button style="width: 75px;" type="button" class="btn btn-info" ng-click="generate_stage1_graph('report/pmd/priority/'+priority_selected+'/',priority_selected)">priority</button>
+         <select  ng-model="priority_selected" style="width: 100px;">
+  <option ng-repeat="priority in priorityList">{{priority}}</option>
+</select><br><br>
+		<button style="width: 75px;" type="button" class="btn btn-info" ng-click="generate_stage1_graph('report/pmd/class/'+class_selected+'/',class_selected)">class</button>  <select ng-model="class_selected" style="width: 100px;">
+  <option ng-repeat="class in classList">{{class}}</option>
+</select><br><br>
+		<button style="width: 75px;" type="button" class="btn btn-info" ng-click="generate_stage1_graph('report/pmd/package/'+package_selected+'/',package_selected)">package</button>  <select ng-model="package_selected" style="width: 100px;">
+  <option ng-repeat="package in packageList">{{package}}</option>
+
+</select><br><br>
+		<button style="width: 75px;" type="button" class="btn btn-info" ng-click="generate_stage1_graph('report/pmd/ruleset/'+ruleset_selected+'/',ruleset_selected)">ruleset</button>  <select ng-model="ruleset_selected" style="width: 100px;">
+  <option ng-repeat="ruleset in rulesetList">{{ruleset}}</option>
+</select><br><br>
+<button style="width: 75px;" type="button" class="btn btn-info" ng-click="generate_stage1_graph('report/pmd/rule/'+rule_selected+'/',rule_selected)">rule</button>  <select ng-model="rule_selected" style="width: 100px;">
+<option ng-repeat="rule in ruleList">{{rule}}</option>
+</select><br><br>
+  		<button type="button" class="btn btn-info" ng-click="renderBarChart('files')" ng-hide="stage" style="width: 75px;">files</button><br><br>
+		<button type="button" class="btn btn-info" ng-click="renderBarChart('violations')" style="width: 75px;">violations</button><br><br>
+</div><br><br><div class="col-sm-15"  style="background-color:lavender;" size="150px" align="center">
+	<div id="barChartContainer" style="height: 400px; width: 80%;" ng-show="stage !==3"></div>
+<div ng-show="stage===3">
+  <table>
+    <tr><th>Property</th><th>Details</th></tr>
+    <tr><td>Begin Line</td><td>{{violation_details._attributes.beginline}}</td></tr>
+    <tr><td>End Line</td><td>{{violation_details._attributes.endline}}</td></tr>
+    <tr><td>Begin Column</td><td>{{violation_details._attributes.begincolumn}}</td></tr>
+    <tr><td>End Column</td><td>{{violation_details._attributes.endcolumn}}</td></tr>
+    <tr><td>Rule</td><td>{{violation_details._attributes.rule}}</td></tr>
+    <tr><td>Rule Set</td><td>{{violation_details._attributes.ruleset}}</td></tr>
+    <tr><td>Package</td><td>{{violation_details._attributes.package}}</td></tr>
+    <tr><td>Extrnal Info URL</td><td>{{violation_details._attributes.externalInfoUrl}}</td></tr>
+    <tr><td>Priority</td><td>{{violation_details._attributes.priority}}</td></tr>
+
+    <tr><td>Text</td><td>{{violation_details._text}}</td></tr>
+
+
+
+  </table>
+  {{$scope.violation_details}}
+</div>
+
+</div></div>
+
+  </div>
+</div>
+<footer class="container-fluid bg-4 text-center" style="background-color: #ffffff;">
+ >>>> HAKCERS <<<<
+</footer>

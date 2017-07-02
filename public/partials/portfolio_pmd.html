@@ -1,0 +1,34 @@
+<div class="bg-1">
+<div id="container">
+
+      <div class="col-sm-2"  style="background-color:#d7efd6; height: 442px;">
+<br>
+         <button style="width: 75px;" type="button" class="btn btn-info" ng-click="generate_stage1_graph('report/pmd/priority/'+priority_selected+'/',priority_selected)">priority</button>
+         <select  ng-model="priority_selected" style="width: 100px;">
+  <option ng-repeat="priority in priorityList">{{priority}}</option>
+</select><br><br>
+		<button style="width: 75px;" type="button" class="btn btn-info" ng-click="generate_stage1_graph('report/pmd/class/'+class_selected+'/',class_selected)">class</button>  <select ng-model="class_selected" style="width: 100px;">
+  <option ng-repeat="class in classList">{{class}}</option>
+</select><br><br>
+		<button style="width: 75px;" type="button" class="btn btn-info" ng-click="generate_stage1_graph('report/pmd/package/'+package_selected+'/',package_selected)">package</button>  <select ng-model="package_selected" style="width: 100px;">
+  <option ng-repeat="package in packageList">{{package}}</option>
+
+</select><br><br>
+		<button style="width: 75px;" type="button" class="btn btn-info" ng-click="generate_stage1_graph('report/pmd/ruleset/'+ruleset_selected+'/',ruleset_selected)">ruleset</button>  <select ng-model="ruleset_selected" style="width: 100px;">
+  <option ng-repeat="ruleset in rulesetList">{{ruleset}}</option>
+</select><br><br>
+<button style="width: 75px;" type="button" class="btn btn-info" ng-click="generate_stage1_graph('report/pmd/rule/'+rule_selected+'/',rule_selected)">rule</button>  <select ng-model="rule_selected" style="width: 100px;">
+<option ng-repeat="rule in ruleList">{{rule}}</option>
+</select><br><br>
+  		<button type="button" class="btn btn-info" ng-click="renderBarChart('files')" ng-hide="stage" style="width: 75px;">files</button><br><br>
+		<button type="button" class="btn btn-info" ng-click="renderBarChart('violations')" style="width: 75px;">violations</button><br><br>
+</div><br><br><div class="col-sm-15"  style="background-color:lavender;" size="150px" align="center">
+	<div id="barChartContainer" style="height: 400px; width: 80%;" ng-show="stage !==3"></div>
+
+</div></div>
+
+  </div>
+</div>
+<footer class="container-fluid bg-4 text-center" style="background-color: #ffffff;">
+ >>>> HAKCERS <<<<
+</footer>
